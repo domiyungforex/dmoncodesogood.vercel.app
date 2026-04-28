@@ -6,7 +6,6 @@ import {
   Float,
   MeshDistortMaterial,
   MeshWobbleMaterial,
-  Environment,
   Stars,
   Sparkles,
   Trail,
@@ -301,9 +300,6 @@ export default function HeroCanvas() {
 
         {/* Grid */}
         <GridPlane />
-
-        {/* Environment for reflections */}
-        <Environment preset="city" />
 
         {/* Post processing */}
         <EffectComposer>

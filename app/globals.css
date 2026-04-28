@@ -216,3 +216,75 @@ body {
   outline: 2px solid var(--neon-blue);
   outline-offset: 3px;
 }
+
+/* ===== RESPONSIVE DESIGN IMPROVEMENTS ===== */
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  body {
+    cursor: auto !important;
+  }
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* Mobile typography scaling */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .text-6xl, .text-7xl, .text-8xl, .text-9xl {
+    font-size: 2.5rem !important;
+  }
+  
+  .text-5xl {
+    font-size: 2rem !important;
+  }
+  
+  .text-4xl {
+    font-size: 1.75rem !important;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .text-6xl, .text-7xl {
+    font-size: 3.5rem !important;
+  }
+  
+  .text-8xl, .text-9xl {
+    font-size: 4rem !important;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile landscape optimizations */
+@media (max-height: 500px) and (orientation: landscape) {
+  #hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+}
+
+/* Fix for iOS safe areas */
+@supports (padding: max(0px)) {
+  .px-6 {
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+  }
+}

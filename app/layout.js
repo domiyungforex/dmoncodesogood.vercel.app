@@ -1,4 +1,5 @@
 import './globals.css';
+import { ProjectsProvider } from '@/context/ProjectsContext';
 
 export const metadata = {
   title: 'AKINYELE DOMINION — Full-Stack & Creative Developer',
@@ -29,7 +30,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased">
-        {children}
+        <ProjectsProvider>
+          {children}
+        </ProjectsProvider>
       </body>
     </html>
   );
