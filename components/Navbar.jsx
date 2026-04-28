@@ -1,44 +1,60 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: '/about' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Skills', href: '/skills' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 60);
 
-      // Detect active section
-      const sections = ['about', 'projects', 'skills', 'contact'];
-      for (const id of sections.reverse()) {
-        const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 200) {
-          setActiveSection(id);
-          break;
+      // Detect active section only on home page
+      if (isHome) {
+        const sections = ['about', 'projects', 'skills', 'contact'];
+        for (const id of sections.reverse()) {
+          const el = document.getElementById(id);
+          if (el && window.scrollY >= el.offsetTop - 200) {
+            setActiveSection(id);
+            break;
+          }
         }
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHome]);
 
   const handleNavClick = (e, href) => {
-    e.preventDefault();
-    const id = href.replace('#', '');
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (isHome && href.startsWith('#')) {
+      e.preventDefault();
+      const id = href.replace('#', '');
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     setMenuOpen(false);
+  };
+
+  const isActive = (href) => {
+    if (href.startsWith('/')) {
+      return pathname === href;
+    }
+    return isHome && activeSection === href.replace('#', '');
   };
 
   return (
@@ -53,15 +69,12 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, delay: 0.5, ease: [0.76, 0, 0.24, 1] }}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Logo */}
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+          <Link
+            href="/"
             className="group relative"
+            onClick={() => setMenuOpen(false)}
           >
             <div className="relative flex items-center gap-2">
               <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-neon-blue/20 to-neon-purple/20 border border-neon-blue/30 flex items-center justify-center group-hover:border-neon-blue/60 transition-all duration-300">
@@ -69,30 +82,29 @@ export default function Navbar() {
                   className="text-sm font-bold text-neon-blue"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
-
+                  AD
                 </span>
               </div>
               <span
-                className="text-sm font-semibold text-white/80 group-hover:text-white transition-colors"
+                className="text-sm font-semibold text-white/80 group-hover:text-white transition-colors hidden sm:block"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
-AKINYELE DOMINION
+                AKINYELE DOMINION
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map(({ label, href }) => {
-              const id = href.replace('#', '');
-              const isActive = activeSection === id;
+              const active = isActive(href);
               return (
-                <a
+                <Link
                   key={href}
                   href={href}
                   onClick={(e) => handleNavClick(e, href)}
                   className={`relative px-4 py-2 text-sm rounded-lg transition-all duration-300 group ${
-                    isActive ? 'text-neon-blue' : 'text-white/50 hover:text-white'
+                    active ? 'text-neon-blue' : 'text-white/50 hover:text-white'
                   }`}
                   style={{ fontFamily: 'var(--font-mono)' }}
                 >
@@ -100,13 +112,13 @@ AKINYELE DOMINION
                     {String(navLinks.findIndex(l => l.href === href) + 1).padStart(2, '0')}.
                   </span>
                   {label}
-                  {isActive && (
+                  {active && (
                     <motion.div
                       layoutId="activeNav"
                       className="absolute inset-0 rounded-lg bg-neon-blue/5 border border-neon-blue/20"
                     />
                   )}
-                </a>
+                </Link>
               );
             })}
           </div>
@@ -153,26 +165,53 @@ AKINYELE DOMINION
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-40 glass flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 z-40 glass flex flex-col items-center justify-center gap-6 px-6"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.25 }}
           >
+            <Link
+              href="/"
+              onClick={() => setMenuOpen(false)}
+              className="text-3xl font-bold text-white hover:text-neon-blue transition-colors"
+              style={{ fontFamily: 'var(--font-display)' }}
+            >
+              Home
+            </Link>
             {navLinks.map(({ label, href }, i) => (
-              <motion.a
+              <motion.div
                 key={href}
-                href={href}
-                onClick={(e) => handleNavClick(e, href)}
-                className="text-3xl font-bold text-white hover:text-neon-blue transition-colors"
-                style={{ fontFamily: 'var(--font-display)' }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.08 }}
               >
-                {label}
-              </motion.a>
+                <Link
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-3xl font-bold text-white hover:text-neon-blue transition-colors"
+                  style={{ fontFamily: 'var(--font-display)' }}
+                >
+                  {label}
+                </Link>
+              </motion.div>
             ))}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navLinks.length * 0.08 }}
+              className="flex flex-col items-center gap-4 mt-4"
+            >
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg text-white/50 hover:text-neon-blue transition-colors"
+                style={{ fontFamily: 'var(--font-mono)' }}
+              >
+                Resume
+              </a>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

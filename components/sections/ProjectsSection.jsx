@@ -1,89 +1,9 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from '@/hooks/useMouseParallax';
-
-const PROJECTS = [
-  {
-    id: 1,
-    title: 'Nebula Dashboard',
-    category: 'SaaS Platform',
-    description: 'A real-time analytics platform with 3D data visualizations, processing over 1M events per day across distributed microservices.',
-    longDesc: 'Built a comprehensive analytics platform from the ground up, featuring real-time streaming with WebSockets, custom 3D chart library built on Three.js, and a Go + Kafka backend capable of ingesting 1M+ events per day. Implemented role-based access control, white-labeling, and an embeddable widget system.',
-    image: '🌌',
-    gradient: 'from-blue-600/20 to-purple-600/20',
-    accent: '#00d4ff',
-    tech: ['Next.js', 'Three.js', 'Go', 'Kafka', 'PostgreSQL', 'Redis'],
-    links: { live: 'https://example.com', github: 'https://github.com' },
-    metrics: ['1M+ events/day', '< 50ms latency', '99.9% uptime'],
-  },
-  {
-    id: 2,
-    title: 'Prisma NFT Marketplace',
-    category: 'Web3 / DeFi',
-    description: 'Decentralized NFT marketplace with gasless minting, fractional ownership, and AI-powered artwork generation.',
-    longDesc: 'Designed and built a full-featured NFT marketplace on Ethereum & Polygon with EIP-712 meta-transactions for gasless UX, Chainlink VRF for provably fair randomness, and IPFS/Filecoin for decentralized storage. Integrated Stable Diffusion API for AI artwork generation at mint time.',
-    image: '💎',
-    gradient: 'from-purple-600/20 to-pink-600/20',
-    accent: '#7c3aed',
-    tech: ['React', 'Solidity', 'Hardhat', 'Ethers.js', 'IPFS', 'Stable Diffusion'],
-    links: { live: 'https://example.com', github: 'https://github.com' },
-    metrics: ['$2M+ volume', '15K+ NFTs minted', '8K+ users'],
-  },
-  {
-    id: 3,
-    title: 'Vortex Game Engine',
-    category: '3D Engine / WebGL',
-    description: 'Browser-based 3D game engine with ECS architecture, custom physics, real-time multiplayer and a visual scripting system.',
-    longDesc: 'Developed a WebGL2 game engine from scratch, featuring an Entity-Component-System architecture, custom physics engine using XPBD constraint solving, real-time multiplayer via WebRTC data channels, and a node-based visual scripting system inspired by Unreal\'s Blueprints.',
-    image: '🎮',
-    gradient: 'from-cyan-600/20 to-blue-600/20',
-    accent: '#06b6d4',
-    tech: ['TypeScript', 'WebGL2', 'WebRTC', 'WASM', 'Rust', 'WebWorkers'],
-    links: { live: 'https://example.com', github: 'https://github.com' },
-    metrics: ['60fps on mobile', '< 5ms physics', '100+ downloads'],
-  },
-  {
-    id: 4,
-    title: 'Synthwave OS',
-    category: 'Creative / Interactive',
-    description: 'An immersive web-based virtual OS experience with retro-futuristic aesthetics, music visualizer, and interactive terminal.',
-    longDesc: 'A love letter to retro computing and synthwave culture, Synthwave OS is a fully interactive web-based operating system simulation featuring a window manager, audio reactive music visualizer built with Web Audio API, interactive filesystem, and a working BASIC interpreter.',
-    image: '🌆',
-    gradient: 'from-pink-600/20 to-orange-600/20',
-    accent: '#ec4899',
-    tech: ['Vanilla JS', 'WebAudio API', 'CSS Houdini', 'Canvas 2D', 'Tone.js'],
-    links: { live: 'https://example.com', github: 'https://github.com' },
-    metrics: ['Awwwards Honorable Mention', '50K+ visitors', 'Featured on Hacker News'],
-  },
-  {
-    id: 5,
-    title: 'Atlas AI',
-    category: 'AI / ML Platform',
-    description: 'Collaborative AI workspace with real-time code generation, multi-model routing, and team knowledge graph.',
-    longDesc: 'Built Atlas AI as a collaborative platform for AI-augmented development. Features include intelligent model routing across GPT-4, Claude, and Llama, real-time collaborative editing with CRDTs, a persistent vector knowledge graph, and an automated code review pipeline that integrates with GitHub Actions.',
-    image: '🤖',
-    gradient: 'from-green-600/20 to-teal-600/20',
-    accent: '#10b981',
-    tech: ['Python', 'FastAPI', 'LangChain', 'Pinecone', 'React', 'CRDTs'],
-    links: { live: 'https://example.com', github: 'https://github.com' },
-    metrics: ['10K+ users', '$180K ARR', 'SOC2 Compliant'],
-  },
-  {
-    id: 6,
-    title: 'Terrain Generator',
-    category: 'Graphics / Tool',
-    description: 'Procedural 3D terrain generator using GPU compute shaders, real-time erosion simulation, and one-click export.',
-    longDesc: 'A browser-based procedural terrain generation tool leveraging WebGPU compute shaders for real-time erosion simulation. Features Perlin/Simplex noise layers, hydraulic erosion, biome generation based on temperature/humidity, and export to glTF, OBJ, and heightmap PNG for use in Unity/Unreal.',
-    image: '🏔️',
-    gradient: 'from-amber-600/20 to-green-600/20',
-    accent: '#f59e0b',
-    tech: ['WebGPU', 'WGSL', 'TypeScript', 'Three.js', 'GLSL'],
-    links: { live: 'https://example.com', github: 'https://github.com' },
-    metrics: ['Real-time 4K', 'GPU-accelerated', 'ProductHunt #2'],
-  },
-];
+import { useProjects } from '@/context/ProjectsContext';
 
 function ProjectModal({ project, onClose }) {
   return (
@@ -338,13 +258,12 @@ function ProjectCard({ project, index, onClick }) {
 }
 
 export default function ProjectsSection() {
+  const { projects, categories } = useProjects();
   const [selectedProject, setSelectedProject] = useState(null);
   const [filter, setFilter] = useState('All');
   const [ref, inView] = useInView(0.1);
 
-  const categories = ['All', 'SaaS Platform', 'Web3 / DeFi', '3D Engine / WebGL', 'AI / ML Platform', 'Creative / Interactive', 'Graphics / Tool'];
-
-  const filtered = filter === 'All' ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
+  const filtered = filter === 'All' ? projects : projects.filter((p) => p.category === filter);
 
   return (
     <>
@@ -390,7 +309,7 @@ export default function ProjectsSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-wrap gap-2 mb-10 overflow-x-auto pb-2"
           >
-            {['All', 'SaaS Platform', 'Web3 / DeFi', 'AI / ML Platform', 'Creative / Interactive'].map((cat) => (
+            {['All', ...categories].map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}

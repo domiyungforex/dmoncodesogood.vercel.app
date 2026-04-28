@@ -1,0 +1,22 @@
+{
+  "components/sections/AboutSection.jsx -> @/components/three/AboutCanvas": {
+    "id": "components/sections/AboutSection.jsx -> @/components/three/AboutCanvas",
+    "files": [
+      "static/chunks/_app-pages-browser_components_three_AboutCanvas_jsx.js"
+    ]
+  },
+  "components/sections/HeroSection.jsx -> @/components/three/HeroCanvas": {
+    "id": "components/sections/HeroSection.jsx -> @/components/three/HeroCanvas",
+    "files": [
+      "static/chunks/_app-pages-browser_components_three_HeroCanvas_jsx.js"
+    ]
+  },
+  "node_modules/.pnpm/@react-three+drei@9.122.0_@react-three+fiber@8.18.0_@types+react@19.2.14_react-dom@18.3_ae76b330f8823eb701c4e6162f634f86/node_modules/@react-three/drei/core/VideoTexture.js -> hls.js": {
+    "id": "node_modules/.pnpm/@react-three+drei@9.122.0_@react-three+fiber@8.18.0_@types+react@19.2.14_react-dom@18.3_ae76b330f8823eb701c4e6162f634f86/node_modules/@react-three/drei/core/VideoTexture.js -> hls.js",
+    "files": []
+  },
+  "node_modules/.pnpm/@react-three+drei@9.122.0_@react-three+fiber@8.18.0_@types+react@19.2.14_react-dom@18.3_ae76b330f8823eb701c4e6162f634f86/node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision": {
+    "id": "node_modules/.pnpm/@react-three+drei@9.122.0_@react-three+fiber@8.18.0_@types+react@19.2.14_react-dom@18.3_ae76b330f8823eb701c4e6162f634f86/node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision",
+    "files": []
+  }
+}

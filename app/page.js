@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import LoadingScreen from '@/components/LoadingScreen';
 import Navbar from '@/components/Navbar';
@@ -51,9 +52,49 @@ export default function Home() {
         
         <main>
           <HeroSection />
+          
+          {/* About Section with View All link */}
           <AboutSection />
+          <div className="relative bg-dark-900 pb-8">
+            <div className="max-w-7xl mx-auto px-6 flex justify-end">
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-xs text-neon-blue hover:text-white transition-colors"
+                style={{ fontFamily: 'var(--font-mono)' }}
+              >
+                View full about page →
+              </Link>
+            </div>
+          </div>
+          
+          {/* Projects Section with View All link */}
           <ProjectsSection />
+          <div className="relative bg-dark-800 pb-8">
+            <div className="max-w-7xl mx-auto px-6 flex justify-end">
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 text-xs text-neon-blue hover:text-white transition-colors"
+                style={{ fontFamily: 'var(--font-mono)' }}
+              >
+                View all projects →
+              </Link>
+            </div>
+          </div>
+          
+          {/* Skills Section with View All link */}
           <SkillsSection />
+          <div className="relative bg-dark-900 pb-8">
+            <div className="max-w-7xl mx-auto px-6 flex justify-end">
+              <Link
+                href="/skills"
+                className="inline-flex items-center gap-2 text-xs text-neon-blue hover:text-white transition-colors"
+                style={{ fontFamily: 'var(--font-mono)' }}
+              >
+                View all skills →
+              </Link>
+            </div>
+          </div>
+          
           <ContactSection />
         </main>
         
