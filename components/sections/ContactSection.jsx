@@ -7,8 +7,8 @@ import { useInView } from '@/hooks/useMouseParallax';
 const SOCIAL_LINKS = [
   {
     name: 'GitHub',
-    handle: '@DOMIYUNGFOREX',
-    url: 'https://github.com/DOMIYUNGFOREX',
+    handle: '@domiyungforex',
+    url: 'https://github.com/domiyungforex',
     color: '#ffffff',
     icon: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -18,7 +18,7 @@ const SOCIAL_LINKS = [
   },
   {
     name: 'LinkedIn',
-    handle: 'AKINYELE DOMINION',
+    handle: '0x_zynex',
     url: 'https://linkedin.com',
     color: '#0a66c2',
     icon: (
@@ -29,8 +29,8 @@ const SOCIAL_LINKS = [
   },
   {
     name: 'Twitter / X',
-    handle: '@DOMIYUNG',
-    url: 'https://x.com/DOMIYUNG',
+    handle: '@domiyung',
+    url: 'https://x.com/domiyung',
     color: '#1d9bf0',
     icon: (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -40,8 +40,8 @@ const SOCIAL_LINKS = [
   },
   {
     name: 'Email',
-    handle: 'dominionakinyele@gmail.com',
-    url: 'mailto:dominionakinyele@gmail.com',
+    handle: 'oxzzynex@gmail.com',
+    url: 'mailto:oxzzynex@gmail.com',
     color: '#ec4899',
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -137,8 +137,8 @@ export default function ContactSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div ref={ref} initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7 }} className="mb-16">
           <span className="text-xs text-neon-blue/60 tracking-widest uppercase mb-2 block" style={{ fontFamily: 'var(--font-mono)' }}>04 / Contact</span>
-          <h2 className="text-5xl md:text-6xl font-black text-white mb-4" style={{ fontFamily: 'var(--font-display)' }}>Let&apos;s <span className="shimmer-text">Connect</span></h2>
-          <p className="text-base text-white/40 max-w-xl" style={{ fontFamily: 'var(--font-body)' }}>Have a project in mind or just want to chat? I&apos;m always open to interesting conversations.</p>
+          <h2 className="text-5xl md:text-6xl font-black text-white mb-4" style={{ fontFamily: 'var(--font-display)' }}>Let&apos;s <span className="shimmer-text">Build Together</span></h2>
+          <p className="text-base text-white/40 max-w-xl" style={{ fontFamily: 'var(--font-body)' }}>Building a Web3 product? I help crypto founders ship interfaces that convert. Let&apos;s talk.</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-12">
@@ -182,13 +182,13 @@ export default function ContactSection() {
             <div className="p-6 rounded-2xl glass border border-neon-green/20">
               <div className="flex items-center gap-3 mb-3">
                 <span className="w-2.5 h-2.5 rounded-full bg-neon-green animate-pulse" />
-                <span className="text-xs text-neon-green font-medium uppercase tracking-wider" style={{ fontFamily: 'var(--font-mono)' }}>Available for new projects</span>
+                <span className="text-xs text-neon-green font-medium uppercase tracking-wider" style={{ fontFamily: 'var(--font-mono)' }}>Open to Web3 projects</span>
               </div>
-              <p className="text-sm text-white/50 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>Currently taking on freelance and full-time opportunities. Response time: usually within 12–24 hours.</p>
+              <p className="text-sm text-white/50 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>Currently taking on DApp frontend, DeFi dashboard, and NFT marketplace projects. Response time: usually within 12–24 hours.</p>
             </div>
 
             <div>
-              <p className="text-xs text-white/30 uppercase tracking-widest mb-4" style={{ fontFamily: 'var(--font-mono)' }}>Find me online</p>
+              <p className="text-xs text-white/30 uppercase tracking-widest mb-4" style={{ fontFamily: 'var(--font-mono)' }}>Find me on-chain</p>
               <div className="flex flex-col gap-3">
                 {SOCIAL_LINKS.map(({ name, handle, url, color, icon }) => (
                   <a key={name} href={url} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 p-4 rounded-xl glass border border-white/5 hover:border-white/15 transition-all duration-300" data-hoverable="true" style={{ '--hover-color': color }}>
@@ -208,8 +208,8 @@ export default function ContactSection() {
             <div className="p-5 rounded-2xl glass border border-white/5 flex items-center gap-4">
               <div className="w-10 h-10 rounded-xl bg-neon-blue/10 border border-neon-blue/20 flex items-center justify-center text-xl">📍</div>
               <div>
-                <p className="text-sm text-white font-medium" style={{ fontFamily: 'var(--font-display)' }}>San Francisco, CA</p>
-                <p className="text-xs text-white/30" style={{ fontFamily: 'var(--font-mono)' }}>Open to remote worldwide</p>
+                <p className="text-sm text-white font-medium" style={{ fontFamily: 'var(--font-display)' }}>Remote / Global</p>
+                <p className="text-xs text-white/30" style={{ fontFamily: 'var(--font-mono)' }}>Working with teams across all time zones</p>
               </div>
             </div>
           </motion.div>

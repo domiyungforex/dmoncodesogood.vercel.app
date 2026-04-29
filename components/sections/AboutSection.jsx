@@ -14,17 +14,17 @@ const AboutCanvas = dynamic(() => import('@/components/three/AboutCanvas'), {
 });
 
 const stats = [
-  { number: '5+', label: 'Years Experience' },
-  { number: '30+', label: 'Projects Shipped' },
-  { number: '10+', label: 'Happy Clients' },
-  { number: '∞', label: 'Lines of Code' },
+  { number: '5+', label: 'Years in Web3' },
+  { number: '30+', label: 'DApps Shipped' },
+  { number: '10+', label: 'Protocols Built' },
+  { number: '∞', label: 'Contracts Integrated' },
 ];
 
 const highlights = [
-  { icon: '⚡', title: 'Performance-First', desc: 'Sub-100ms interactions, optimized bundles, and 95+ Lighthouse scores.' },
-  { icon: '🎨', title: 'Creative Vision', desc: 'Blending art and engineering to craft interfaces people remember.' },
-  { icon: '🔗', title: 'Full-Stack Depth', desc: 'From database schemas to pixel-perfect UIs — I own the whole stack.' },
-  { icon: '🌐', title: 'Web3 Native', desc: 'Smart contracts, dApps, and decentralized protocols since 2020.' },
+  { icon: '⚡', title: 'Gas-Optimized UIs', desc: 'Sub-100ms wallet interactions, optimized contract calls, and 95+ Lighthouse scores.' },
+  { icon: '🎨', title: 'Security First', desc: 'Building interfaces that make complex blockchain interactions feel effortless.' },
+  { icon: '🔗', title: 'Protocol Integration', desc: 'From smart contract events to pixel-perfect UIs — I bridge on-chain and off-chain.' },
+  { icon: '🌐', title: 'Security First', desc: 'Audited patterns, secure wallet flows, and battle-tested DeFi components.' },
 ];
 
 const stagger = {
@@ -111,9 +111,9 @@ export default function AboutSection() {
                 style={{ fontFamily: 'var(--font-body)' }}
               >
                 I&apos;m a{' '}
-                <span className="text-neon-blue font-medium">full-stack developer</span> and{' '}
-                <span className="text-neon-purple font-medium">creative technologist</span> based in
-                San Francisco, obsessed with building digital experiences that live at the
+                <span className="text-neon-blue font-medium">Web3 frontend developer</span> and{' '}
+                <span className="text-neon-purple font-medium">DeFi interface specialist</span> based in
+                the blockchain, obsessed with building digital experiences that live at the
                 intersection of design and engineering.
               </p>
               <p

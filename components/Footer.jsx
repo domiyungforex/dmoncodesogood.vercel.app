@@ -17,14 +17,14 @@ export default function Footer() {
                 className="text-xs font-bold text-neon-blue"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
-AD
+                0x
               </span>
             </div>
             <span
-              className="text-sm text-white/40"
+              className="text-xs font-bold tracking-widest text-white/40 uppercase"
               style={{ fontFamily: 'var(--font-mono)' }}
             >
-akinyele.dominion.dev
+              DMON CODE SO GOOD
             </span>
           </div>
 
@@ -33,7 +33,7 @@ akinyele.dominion.dev
             className="text-xs text-white/25 text-center"
             style={{ fontFamily: 'var(--font-mono)' }}
           >
-© {new Date().getFullYear()} AKINYELE DOMINION. Built with Next.js, Three.js & ❤️ — DMON CODE SO GOOD
+            &copy; {new Date().getFullYear()} 0x_zynex. Built for Web3 &mdash; DMON CODE SO GOOD
           </p>
 
           {/* Back to top */}
@@ -53,3 +53,4 @@ akinyele.dominion.dev
     </footer>
   );
 }
+

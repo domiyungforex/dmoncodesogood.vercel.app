@@ -386,7 +386,7 @@ export default function AdminPage() {
                       onChange={(e) => setForm({ ...form, title: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl bg-dark-700/50 border border-white/10 text-white text-sm outline-none focus:border-neon-blue/60 transition-colors"
                       style={{ fontFamily: 'var(--font-body)' }}
-                      placeholder="e.g. Nebula Dashboard"
+                      placeholder="e.g. Aurum DeFi Dashboard"
                     />
                   </div>
                   <div>

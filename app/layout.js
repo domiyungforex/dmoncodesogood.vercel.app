@@ -2,12 +2,12 @@ import './globals.css';
 import { ProjectsProvider } from '@/context/ProjectsContext';
 
 export const metadata = {
-  title: 'AKINYELE DOMINION — Full-Stack & Creative Developer',
-  description: 'Building immersive digital experiences at the intersection of code and creativity. Specializing in React, Three.js, and modern web architecture. DMON CODE SO GOOD',
-  keywords: ['developer', 'portfolio', '3D', 'Three.js', 'React', 'Next.js', 'full-stack'],
+  title: '0x_zynex — Web3 Frontend Developer | DApps, DeFi & Smart Contract UIs',
+  description: 'DMON CODE SO GOOD. Building high-converting Web3 interfaces that turn visitors into users. DApp frontend, DeFi dashboards, NFT marketplaces, and smart contract integrations.',
+  keywords: ['Web3', 'DApp', 'DeFi', 'NFT', 'smart contract', 'frontend', 'React', 'Three.js', 'Next.js', 'Solidity', 'TypeScript', 'DMON CODE SO GOOD'],
   openGraph: {
-    title: 'AKINYELE DOMINION — Developer Portfolio',
-    description: 'Immersive 3D developer portfolio — DMON CODE SO GOOD',
+    title: '0x_zynex — Web3 Frontend Developer',
+    description: 'DMON CODE SO GOOD. High-converting Web3 interfaces for crypto founders.',
     type: 'website',
   },
 };

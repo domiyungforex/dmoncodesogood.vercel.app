@@ -34,13 +34,6 @@ export default function ContactPage() {
                 Back to Home
               </Link>
               
-              <h1
-                className="text-5xl md:text-7xl font-black text-white mb-4"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                Let&apos;s{' '}
-                <span className="shimmer-text">Connect</span>
-              </h1>
               <p
                 className="text-base md:text-lg text-white/40 max-w-2xl"
                 style={{ fontFamily: 'var(--font-body)' }}
@@ -77,7 +70,7 @@ export default function ContactPage() {
                   className="px-6 py-3 rounded-xl glass border border-white/10 text-white/60 text-sm hover:text-white hover:border-white/20 transition-all"
                   style={{ fontFamily: 'var(--font-mono)' }}
                 >
-                  About Me
+                  About
                 </Link>
                 <Link
                   href="/projects"

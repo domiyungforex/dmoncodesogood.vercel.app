@@ -33,13 +33,6 @@ export default function AboutPage() {
                 Back to Home
               </Link>
               
-              <h1
-                className="text-5xl md:text-7xl font-black text-white mb-4"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                About{' '}
-                <span className="shimmer-text">Me</span>
-              </h1>
               <p
                 className="text-base md:text-lg text-white/40 max-w-2xl"
                 style={{ fontFamily: 'var(--font-body)' }}

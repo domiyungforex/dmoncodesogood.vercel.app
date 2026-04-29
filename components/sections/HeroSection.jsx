@@ -10,10 +10,10 @@ const HeroCanvas = dynamic(() => import('@/components/three/HeroCanvas'), {
 });
 
 const TYPED_STRINGS = [
-  'immersive digital experiences.',
-  'performant web applications.',
-  'creative 3D interfaces.',
-  'full-stack solutions.',
+  'high-converting DApp interfaces.',
+  'DeFi dashboards that users trust.',
+  'NFT marketplaces that sell out.',
+  'smart contract UIs that just work.',
 ];
 
 function TypedText() {
@@ -95,7 +95,7 @@ export default function HeroSection() {
               className="text-xs text-white/60 tracking-widest uppercase"
               style={{ fontFamily: 'var(--font-mono)' }}
             >
-              Available for work
+              Available for Web3 projects
             </span>
           </div>
         </motion.div>
@@ -121,8 +121,8 @@ export default function HeroSection() {
             className="text-6xl md:text-8xl lg:text-9xl font-black text-white leading-none mb-4"
             style={{ fontFamily: 'var(--font-display)' }}
           >
-            AKINYELE{' '}
-            <span className="shimmer-text">DOMINION</span>
+            0x_zynex{' '}
+            <span className="shimmer-text"></span>
           </motion.h1>
 
           <motion.p
@@ -160,7 +160,7 @@ export default function HeroSection() {
               className="relative text-sm font-semibold text-white tracking-wider uppercase"
               style={{ fontFamily: 'var(--font-mono)' }}
             >
-              View My Work
+              See My Builds
             </span>
           </button>
 
@@ -174,7 +174,7 @@ export default function HeroSection() {
               className="text-sm font-semibold text-white/70 group-hover:text-white tracking-wider uppercase transition-colors"
               style={{ fontFamily: 'var(--font-mono)' }}
             >
-              Get In Touch
+              Start a Project
             </span>
           </button>
         </motion.div>
@@ -187,7 +187,7 @@ export default function HeroSection() {
           animate="visible"
           className="flex flex-wrap items-center justify-center gap-2 mt-8"
         >
-          {['React', 'Next.js', 'Three.js', 'Node.js', 'TypeScript'].map((tech) => (
+          {['React', 'Next.js', 'Solidity', 'Ethers.js', 'Wagmi'].map((tech) => (
             <span
               key={tech}
               className="px-3 py-1 text-xs rounded-full glass border border-white/5 text-white/40"
@@ -231,7 +231,7 @@ export default function HeroSection() {
           transition={{ delay: 1.5, duration: 0.6 }}
           className="flex flex-col gap-1"
         >
-          {['Full-Stack Dev', 'Creative Coder', 'UI/UX Enthusiast'].map((tag, i) => (
+          {['Web3 Frontend', 'DeFi Builder', 'Smart Contract UI'].map((tag, i) => (
             <span
               key={tag}
               className="text-xs text-white/20 flex items-center gap-2"
@@ -252,13 +252,13 @@ export default function HeroSection() {
           className="flex flex-col items-end gap-1"
         >
           <span className="text-xs text-white/20" style={{ fontFamily: 'var(--font-mono)' }}>
-            5+ years experience
+            5+ years in Web3
           </span>
           <span className="text-xs text-white/20" style={{ fontFamily: 'var(--font-mono)' }}>
-            30+ projects shipped
+            $10M+ TVL secured
           </span>
           <span className="text-xs text-white/20" style={{ fontFamily: 'var(--font-mono)' }}>
-            10+ clients served
+            15+ DApps shipped
           </span>
         </motion.div>
       </div>

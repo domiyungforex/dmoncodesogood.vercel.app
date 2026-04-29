@@ -1,4 +1,4 @@
-# 🚀 AKINYELE DOMINION — 3D Developer Portfolio
+# 🚀 0x_zynex — Web3 Developer Portfolio
 
 DMON CODE SO GOOD
 

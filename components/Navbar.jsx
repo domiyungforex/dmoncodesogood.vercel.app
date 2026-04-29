@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
+  { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Projects', href: '/projects' },
   { label: 'Skills', href: '/skills' },
@@ -24,7 +25,6 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 60);
 
-      // Detect active section only on home page
       if (isHome) {
         const sections = ['about', 'projects', 'skills', 'contact'];
         for (const id of sections.reverse()) {
@@ -82,14 +82,14 @@ export default function Navbar() {
                   className="text-sm font-bold text-neon-blue"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
-                  AD
+                  0x
                 </span>
               </div>
               <span
-                className="text-sm font-semibold text-white/80 group-hover:text-white transition-colors hidden sm:block"
-                style={{ fontFamily: 'var(--font-display)' }}
+                className="text-xs font-bold tracking-widest text-white/80 group-hover:text-white transition-colors hidden sm:block uppercase"
+                style={{ fontFamily: 'var(--font-mono)' }}
               >
-                AKINYELE DOMINION
+                DMON CODE SO GOOD
               </span>
             </div>
           </Link>
@@ -171,14 +171,6 @@ export default function Navbar() {
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.25 }}
           >
-            <Link
-              href="/"
-              onClick={() => setMenuOpen(false)}
-              className="text-3xl font-bold text-white hover:text-neon-blue transition-colors"
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              Home
-            </Link>
             {navLinks.map(({ label, href }, i) => (
               <motion.div
                 key={href}
@@ -218,3 +210,4 @@ export default function Navbar() {
     </>
   );
 }
+

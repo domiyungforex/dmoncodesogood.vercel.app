@@ -33,13 +33,6 @@ export default function ProjectsPage() {
                 Back to Home
               </Link>
               
-              <h1
-                className="text-5xl md:text-7xl font-black text-white mb-4"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                Selected{' '}
-                <span className="shimmer-text">Work</span>
-              </h1>
               <p
                 className="text-base md:text-lg text-white/40 max-w-2xl"
                 style={{ fontFamily: 'var(--font-body)' }}
